@@ -5,10 +5,12 @@ project for web and mobile
 
 - Lucas Mourato Aureliano
 
-- Antonio edson de holanda neto
+- Antonio Edson de Holanda Neto
 
-- Matheus fabiano barbosa aguiar
+- Matheus Fabiano Barbosa Aguiar
 
-- David candido de souza
+- David Candido de souza
 
-- arthur felipe de vasconcelo
+- Arthur felipe de vasconcelos
+
+- Gabriel carneiro
