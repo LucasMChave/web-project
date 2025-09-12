@@ -13,4 +13,4 @@ project for web and mobile
 
 - Arthur felipe de vasconcelos
 
-- Gabriel carneiro
+- Gabriel de Souza Leão Araújo
