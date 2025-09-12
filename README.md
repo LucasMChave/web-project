@@ -11,4 +11,4 @@ project for web and mobile
 
 - David candido de souza
 
-- arthur felipe de vasconcelos
+- arthur felipe de vasconcelo
