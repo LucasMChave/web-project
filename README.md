@@ -5,12 +5,12 @@ project for web and mobile
 
 - Lucas Mourato Aureliano
 
-- Antonio Edson de Holanda Neto
+- Antônio Edson de Holanda Neto
 
 - Matheus Fabiano Barbosa Aguiar
 
-- David Candido de souza
+- David Candido de Souza
 
-- Arthur felipe de vasconcelos
+- Arthur Felipe de Vasconcelos
 
 - Gabriel de Souza Leão Araújo
