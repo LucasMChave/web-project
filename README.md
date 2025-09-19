@@ -1,16 +1,16 @@
-# web-project
-project for web and mobile
+# Web-project
+Project for web and mobile
 
-# developers 
-
-- Lucas Mourato Aureliano
+# Developers 
 
 - Antônio Edson de Holanda Neto
 
-- Matheus Fabiano Barbosa Aguiar
-
-- David Candido de Souza
-
 - Arthur Felipe de Vasconcelos
 
+- David Cândido de Souza
+
 - Gabriel de Souza Leão Araújo
+
+- Lucas Mourato Aureliano
+
+- Matheus Fabiano Barbosa Aguiar
