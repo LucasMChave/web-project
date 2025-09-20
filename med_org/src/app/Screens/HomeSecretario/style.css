@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff; /* fundo branco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ecf0f1; /* opcional */
+}
+
+.home-header {
+  width: 100%;
+  background-color: #1e3a8a; /* azul escuro */
+  color: white;
+  padding: 16px 24px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hora {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.usuario-nome {
+  width: 100%;
+  background-color: #e0e7ff; /* azul bem clarinho para contraste suave */
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e3a8a; /* azul escuro */
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff; /* fundo branco para os botões */
+  border: 2px solid #1e3a8a; /* azul escuro */
+  color: #1e3a8a; /* azul escuro no texto */
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.1rem;
+}
+
+.menu-item:hover {
+  background-color: #dbeafe; /* azul clarinho ao passar o mouse */
+  border-color: #2563eb; /* azul médio no hover */
+  transform: translateY(-2px);
+}
+
+.menu-item:focus {
+  outline: 3px solid #2563eb; /* azul médio no foco */
+  outline-offset: 2px;
+  background-color: #dbeafe;
+}
+
+.menu-item:active {
+  background-color: #bfdbfe; /* azul médio mais escuro */
+  border-color: #1e40af; /* azul escuro */
+}
+
+.menu-item:disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.menu-icon {
+  font-size: 1.8rem;
+  color: #1e3a8a; /* ícones azuis */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 400px) {
+  .menu-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .menu-item {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Layout para tablets ou telas médias */
+@media (min-width: 500px) {
+  .menu-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-item {
+    flex: 1 1 45%;
+    justify-content: center;
+  }
+}
