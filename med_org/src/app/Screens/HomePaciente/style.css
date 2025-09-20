@@ -1,0 +1,93 @@
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc; /* branco gelo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ecf0f1; /* Opcional */
+}
+
+.home-header {
+  width: 100%;
+  background-color: #1e3a8a; /* azul escuro */
+  color: white;
+  padding: 16px 24px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hora {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.usuario-nome {
+  width: 100%;
+  background-color: #e0f2fe; /* azul muito claro */
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1e3a8a;
+  border-bottom: 2px solid #1e3a8a;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff; /* branco */
+  border: 2px solid #1e40af; /* azul */
+  color: #1e40af;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+  font-size: 1.1rem;
+}
+
+.menu-item:hover {
+  background-color: #eff6ff; /* azul clarinho */
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.menu-icon {
+  font-size: 1.8rem;
+}
+
+/* Estilo específico para o botão de Suporte */
+.suporte-button {
+  background-color: #fef2f2; /* vermelho muito claro */
+  border-color: #dc2626;      /* vermelho forte */
+  color: #b91c1c;
+}
+
+.suporte-button:hover {
+  background-color: #fee2e2;
+  border-color: #b91c1c;
+}
