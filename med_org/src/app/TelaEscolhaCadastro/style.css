@@ -1,0 +1,51 @@
+.telaEscolha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.titleEscolha {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1976D2;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.botaoEscolha {
+  background-color: #1976D2;
+  color: white;
+  font-size: 16px;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px 0;
+  width: 80%;
+  max-width: 300px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botaoEscolha:hover {
+  background-color: #155ca2;
+}
+
+.voltar-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.voltar-btn:hover {
+  text-decoration: underline;
+}

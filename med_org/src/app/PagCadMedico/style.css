@@ -1,0 +1,63 @@
+.telaCadastro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+h1 {
+  color: #007bff !important;
+  font-size: 24px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  max-width: 90%;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+img {
+  border: none;
+  margin: auto;
+  height: 100px;
+  width: 100px;
+}
+
+.voltar-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.voltar-btn:hover {
+  text-decoration: underline;
+}
+
+.botao-cadastrar {
+  background-color: #007bff !important;
+  color: white !important;
+  border: none;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 20px;
+  transition: background-color 5.0s ease;
+}
+
+.botao-cadastrar:hover {
+  background-color: #0070d9 !important;
+}

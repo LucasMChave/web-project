@@ -1,10 +1,12 @@
+"use client"
+import Image from "next/image";
 import React, { useState } from 'react';
-import MedLogo from '../../assets/Med-org.jpg';
-import { useNavigate } from 'react-router-dom';
+import MedLogo from '../../../public/assets/Med-org.jpg';
+import { useRouter } from 'next/navigation';
 import './style.css';
 
 export default function HomeScreen() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [manterConectado, setManterConectado] = useState(false);
@@ -41,7 +43,7 @@ export default function HomeScreen() {
 
   return (
     <div className="telaLogin">
-      <img src={MedLogo} alt="Logo MedOrg" />
+      <Image src="/assets/Med-org.jpg" alt="Logo MedOrg" width={200} height={200} />
       <h1>Login</h1>
 
       <form onSubmit={(e) => e.preventDefault()}>
@@ -59,7 +61,7 @@ export default function HomeScreen() {
           onChange={(e) => setSenha(e.target.value)}
         />
 
-        <button type="button" onClick={() => navigate('/escolha')}>
+        <button type="button" onClick={() => router.push('TelaEscolhaCadastro')}>
           Criar Conta
         </button>
 
