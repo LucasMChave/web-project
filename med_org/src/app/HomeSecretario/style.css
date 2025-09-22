@@ -17,77 +17,85 @@
 .home-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  background-color: #ecf0f1; /* opcional */
+  background-color: #ecf0f1;
+  padding: 20px;
 }
 
 .home-header {
   width: 100%;
   background-color: #1e3a8a; /* azul escuro */
   color: white;
-  padding: 16px 24px;
-  font-size: 1.25rem;
+  padding: 20px 30px;
+  font-size: 1.6rem;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid #2563eb;
 }
 
 .hora {
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.8;
 }
 
 .usuario-nome {
   width: 100%;
-  background-color: #e0e7ff; /* azul bem clarinho para contraste suave */
+  background-color: #e0e7ff; /* azul claro */
   text-align: center;
-  padding: 8px 0;
+  padding: 12px 0;
   font-weight: 600;
-  font-size: 1rem;
-  color: #1e3a8a; /* azul escuro */
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  border-bottom: 2px solid #1e3a8a;
+  margin-bottom: 30px;
 }
 
+/* Menu agora em GRID para dashboard */
 .menu-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
   padding: 20px;
   width: 100%;
-  max-width: 420px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background-color: #ffffff; /* fundo branco para os botões */
-  border: 2px solid #1e3a8a; /* azul escuro */
-  color: #1e3a8a; /* azul escuro no texto */
+  gap: 14px;
+  background-color: #ffffff;
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
   font-weight: 600;
-  padding: 12px 20px;
+  padding: 18px 20px;
   border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
   font-size: 1.1rem;
+  box-shadow: 0 2px 6px rgba(30, 58, 138, 0.15);
 }
 
 .menu-item:hover {
-  background-color: #dbeafe; /* azul clarinho ao passar o mouse */
-  border-color: #2563eb; /* azul médio no hover */
-  transform: translateY(-2px);
+  background-color: #dbeafe;
+  border-color: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
 }
 
 .menu-item:focus {
-  outline: 3px solid #2563eb; /* azul médio no foco */
+  outline: 3px solid #2563eb;
   outline-offset: 2px;
   background-color: #dbeafe;
 }
 
 .menu-item:active {
-  background-color: #bfdbfe; /* azul médio mais escuro */
-  border-color: #1e40af; /* azul escuro */
+  background-color: #bfdbfe;
+  border-color: #1e40af;
 }
 
 .menu-item:disabled {
@@ -99,36 +107,31 @@
 
 .menu-icon {
   font-size: 1.8rem;
-  color: #1e3a8a; /* ícones azuis */
+  color: #1e3a8a;
 }
 
-/* Responsividade para telas pequenas */
-@media (max-width: 400px) {
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-header {
+    font-size: 1.3rem;
+    padding: 16px 20px;
+  }
+
+  .usuario-nome {
+    font-size: 1rem;
+  }
+
   .menu-container {
-    max-width: 100%;
-    padding: 10px;
+    grid-template-columns: 1fr; /* empilha no celular */
+    gap: 14px;
   }
 
   .menu-item {
     font-size: 1rem;
-    padding: 10px 16px;
+    padding: 14px;
   }
 
   .menu-icon {
     font-size: 1.5rem;
-  }
-}
-
-/* Layout para tablets ou telas médias */
-@media (min-width: 500px) {
-  .menu-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .menu-item {
-    flex: 1 1 45%;
-    justify-content: center;
   }
 }
