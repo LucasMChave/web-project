@@ -1,0 +1,4 @@
+//Caso estejamos usando APACHE
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
