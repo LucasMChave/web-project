@@ -1,9 +1,10 @@
+"use client"
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/navigation';
 import './style.css';
 
 const HomeSecretario = () => {
-  const navigate = useNavigate();
+  const navigate = useRouter();
   const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
   const userName = usuarioSalvo?.nome || "Secretário";
   const tipoUsuario = usuarioSalvo?.tipo;
@@ -47,7 +48,7 @@ const HomeSecretario = () => {
           {menuItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => item.path && navigate(item.path)}
+              onClick={() => item.path && router.push(item.path)}
               className="menu-item"
               aria-label={item.label}
             >

@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import React from "react";
+"use client"
+import { useRouter } from 'next/navigation';
+import React, {useEffect} from "react";
 import './style.css';
 
 const HomeMedico = () => {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
     const userName = usuarioSalvo?.nome || "Médico";
@@ -12,9 +13,9 @@ const HomeMedico = () => {
     useEffect(() => {
         if(tipoUsuario !== "medico") {
             alert("Acesso permitido apenas para médicos.");
-            navigate("/");
+            router.push("/");
         }
-    }, [tipoUsuario, navigate]);
+    }, [tipoUsuario, router]);
 
     const menuItems = [
         { label: "Lista de Consultas", icon: "📋", path: "/consultas" },
@@ -43,7 +44,7 @@ const HomeMedico = () => {
             {menuItems.map((item, index) => (
                 <button
                 key={index}
-                onClick={() => navigate(item.path)}
+                onClick={() => router.push(item.path)}
                 className={`menu-item ${item.label === "Suporte" ? "suporte" : ""}`}
                 >
                 <span className="menu-icon">{item.icon}</span>

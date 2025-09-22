@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+"use client"
+import { useRouter } from 'next/navigation';
 import React from "react";
 import './style.css';
 
 const HomePaciente = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
   const userName = usuarioSalvo?.nome || "Usuário";
@@ -44,7 +45,7 @@ const HomePaciente = () => {
           {menuItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => item.path && navigate(item.path)}
+              onClick={() => item.path && router.push(item.path)}
               className="menu-item"
             >
               <span className="menu-icon">{item.icon}</span>
@@ -52,7 +53,7 @@ const HomePaciente = () => {
             </button>
           ))}
 
-          <button onClick={() => navigate("/suporte")} className="menu-item suporte-button">
+          <button onClick={() => router.push("/suporte")} className="menu-item suporte-button">
             <span className="menu-icon">🆘</span>
             <span>Suporte</span>
           </button>
