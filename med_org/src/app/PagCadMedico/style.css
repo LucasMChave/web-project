@@ -1,33 +1,46 @@
 .telaCadastro {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding-top: 100px;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-color: #f0f2f5; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
 }
 
 h1 {
-  color: #007bff !important;
-  font-size: 24px;
+  color: #007bff;
+  font-size: 28px;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #fff;
-  max-width: 90%;
-  width: 400px;
-  margin-bottom: 20px;
+  gap: 15px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease;
 }
 
-img {
-  border: none;
-  margin: auto;
-  height: 100px;
-  width: 100px;
+form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .voltar-btn {
@@ -47,17 +60,40 @@ img {
 }
 
 .botao-cadastrar {
-  background-color: #007bff !important;
-  color: white !important;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 6px;
-  height: 40px;
+  height: 45px;
   font-size: 16px;
   cursor: pointer;
-  padding: 0 20px;
-  transition: background-color 5.0s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .botao-cadastrar:hover {
-  background-color: #0070d9 !important;
+  background-color: #005ecb;
+  transform: translateY(-2px);
+}
+
+img {
+  border: none;
+  margin: auto;
+  height: 100px;
+  width: 100px;
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .botao-cadastrar {
+    height: 40px;
+    font-size: 15px;
+  }
 }
