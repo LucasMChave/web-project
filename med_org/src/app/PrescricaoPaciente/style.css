@@ -1,0 +1,39 @@
+.prescricao-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  height: 100vh;
+  position: relative;
+}
+
+.voltar-seta {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.prescricao-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.prescricao-card p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
