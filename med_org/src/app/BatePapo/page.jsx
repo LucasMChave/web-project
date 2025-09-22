@@ -1,12 +1,13 @@
+"use client"
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import './style.css';
 
 function Chat() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const [messages, setMessages] = useState([
-    { from: 'system', text: 'Bom dia Robsom. Como você está se sentindo hoje?' },
+    { from: 'system', text: 'Bom dia Narceja. Como você está se sentindo hoje?' },
     { from: 'user', text: 'Olá Dr. Henrique estou um pouco melhor' },
     { from: 'user', text: 'mas ainda com algumas dores.' }
   ]);
@@ -33,7 +34,7 @@ function Chat() {
 
   return (
     <div className="chat-container">
-      <button className="voltar-btn" onClick={() => navigate(-1)}>← Voltar</button>
+      <button className="voltar-btn" onClick={() => router.back()}>← Voltar</button>
 
       <div className="header">
         <span>Dr. Henrique Dias Gonçalves</span>

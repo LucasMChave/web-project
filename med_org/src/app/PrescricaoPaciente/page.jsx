@@ -1,13 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+"use client"
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import './style.css';
 
 export default function PrescricaoPaciente() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="prescricao-container">
-      <button className="voltar-btn" onClick={() => navigate(-1)}>← Voltar</button>
+      <button className="voltar-btn" onClick={() => router.back()}>← Voltar</button>
       <h2 className="titulo">Prescrição</h2>
 
       <div className="prescricao-card">

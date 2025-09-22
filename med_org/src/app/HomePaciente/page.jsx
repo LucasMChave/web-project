@@ -13,14 +13,14 @@ const HomePaciente = () => {
   // useEffect(() => {
   //   if (tipoUsuario !== "paciente") {
   //     alert("Acesso permitido apenas para pacientes.");
-  //     navigate("/");
+  //     router.push("/");
   //   }
-  // }, [tipoUsuario, navigate]);
+  // }, [tipoUsuario, router]);
 
   const menuItems = [
-    { label: "Falar com Médicos", icon: "💬", path: "/chat" },
+    { label: "Falar com Médicos", icon: "💬", path: "/BatePapo" },
     { label: "Agendamentos", icon: "📅", path: "/servicos-oferecidos" },
-    { label: "Prescrições Atuais", icon: "💊", path: "/prescricao-paciente" },
+    { label: "Prescrições Atuais", icon: "💊", path: "/PrescricaoPaciente" },
     { label: "Mapa", icon: "📍" },
     { label: "Conta", icon: "👤" },
     { label: "Configurações", icon: "⚙️" },
@@ -53,7 +53,7 @@ const HomePaciente = () => {
             </button>
           ))}
 
-          <button onClick={() => router.push("/suporte")} className="menu-item suporte-button">
+          <button onClick={() => router.push("/PagSuporte")} className="menu-item suporte-button">
             <span className="menu-icon">🆘</span>
             <span>Suporte</span>
           </button>
