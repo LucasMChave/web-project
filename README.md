@@ -11,6 +11,6 @@ Project for web and mobile
 
 - Gabriel de Souza Leão Araújo
 
-- Lucas Mourato Aureliano
+- Lucas Mourato Aureliano de Melo
 
 - Matheus Fabiano Barbosa Aguiar
