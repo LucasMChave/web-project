@@ -10,84 +10,123 @@
   margin: 0;
 }
 
+/* Wrapper ocupa a tela toda */
 .home-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  background-color: #ecf0f1; /* Opcional */
+  background-color: #ecf0f1;
+  padding: 20px;
 }
 
+/* Cabeçalho estilo painel */
 .home-header {
   width: 100%;
   background-color: #1e3a8a; /* azul escuro */
   color: white;
-  padding: 16px 24px;
-  font-size: 1.25rem;
+  padding: 20px 30px;
+  font-size: 1.6rem;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid #1d4ed8;
 }
 
 .hora {
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.9;
 }
 
+/* Nome do usuário */
 .usuario-nome {
   width: 100%;
   background-color: #e0f2fe; /* azul muito claro */
   text-align: center;
-  padding: 10px 0;
+  padding: 14px 0;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   color: #1e3a8a;
   border-bottom: 2px solid #1e3a8a;
+  margin-bottom: 30px;
 }
 
+/* Menu em GRID para parecer painel */
 .menu-container {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
   width: 100%;
-  max-width: 420px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Botões */
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background-color: #ffffff; /* branco */
+  gap: 14px;
+  background-color: #ffffff;
   border: 2px solid #1e40af; /* azul */
   color: #1e40af;
   font-weight: 600;
-  padding: 14px 22px;
+  padding: 20px;
   border-radius: 14px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
   font-size: 1.1rem;
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.15);
 }
 
 .menu-item:hover {
   background-color: #eff6ff; /* azul clarinho */
   border-color: #1d4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3);
 }
 
 .menu-icon {
   font-size: 1.8rem;
 }
 
-/* Estilo específico para o botão de Suporte */
+/* Botão Suporte destacado */
 .suporte-button {
   background-color: #fef2f2; /* vermelho muito claro */
   border-color: #dc2626;      /* vermelho forte */
   color: #b91c1c;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
 }
 
 .suporte-button:hover {
   background-color: #fee2e2;
   border-color: #b91c1c;
+  box-shadow: 0 6px 14px rgba(220, 38, 38, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-header {
+    font-size: 1.3rem;
+    padding: 16px 20px;
+  }
+
+  .usuario-nome {
+    font-size: 1.1rem;
+  }
+
+  .menu-container {
+    grid-template-columns: 1fr; /* empilha no celular */
+    padding: 15px;
+  }
+
+  .menu-item {
+    font-size: 1rem;
+    padding: 16px;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+  }
 }
