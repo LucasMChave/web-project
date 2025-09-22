@@ -22,7 +22,9 @@ function Suporte() {
                 <h1 id='num'>(81)xxxxx-xxxx</h1>
                 <h1 id='nome'>- Matheus Aguilar:</h1>
                 <h1 id='num'>(81)xxxxx-xxxx</h1>
-                <h1 id='nome'>- Salomão Pernambucano:</h1>
+                <h1 id='nome'>- Gabriel de Souza :</h1>
+                <h1 id='num'>(81)xxxxx-xxxx</h1>
+                <h1 id='nome'>- Arthur Felipe</h1>
                 <h1 id='num'>(81)xxxxx-xxxx</h1>
             </form>
         </div>
