@@ -10,7 +10,6 @@
   margin: 0;
 }
 
-/* Wrapper ocupa a tela toda */
 .home-wrapper {
   display: flex;
   justify-content: center;
@@ -20,7 +19,6 @@
   padding: 20px;
 }
 
-/* Cabeçalho estilo painel */
 .home-header {
   width: 100%;
   background-color: #1e3a8a; /* azul escuro */
@@ -39,7 +37,6 @@
   opacity: 0.9;
 }
 
-/* Nome do usuário */
 .usuario-nome {
   width: 100%;
   background-color: #e0f2fe; /* azul muito claro */
@@ -52,7 +49,6 @@
   margin-bottom: 30px;
 }
 
-/* Menu em GRID para parecer painel */
 .menu-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -63,7 +59,6 @@
   margin: 0 auto;
 }
 
-/* Botões */
 .menu-item {
   display: flex;
   align-items: center;
@@ -91,7 +86,6 @@
   font-size: 1.8rem;
 }
 
-/* Botão Suporte destacado */
 .suporte-button {
   background-color: #fef2f2; /* vermelho muito claro */
   border-color: #dc2626;      /* vermelho forte */
@@ -105,7 +99,6 @@
   box-shadow: 0 6px 14px rgba(220, 38, 38, 0.4);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .home-header {
     font-size: 1.3rem;
@@ -117,7 +110,7 @@
   }
 
   .menu-container {
-    grid-template-columns: 1fr; /* empilha no celular */
+    grid-template-columns: 1fr;
     padding: 15px;
   }
 
