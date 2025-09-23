@@ -1,118 +1,189 @@
-"use client"
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-import './style.css';
+"use client";
+import React, { useState } from "react";
+import "./style.css";
 
-
-export default function CadastroPaciente() {
-  const router = useRouter();
-
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    sexo: '',
-    dataNascimento: '',
-    cpf: '',
-    telefone: '',
-    endereco: '',
-    possuiPlano: false,
-    fornecedoraPlano: '',
+export default function PagCadPaciente() {
+  const [form, setForm] = useState({
+    email: "",
+    senha: "",
+    CPF: "",
+    endereço: "",
+    nome: "",
+    data_de_nascimento: "",
+    sexo: "",
+    confirmarSenha: "",
   });
 
-  const handleChange = (key, value) => {
-    setFormData((prev) => ({ ...prev, [key]: value }));
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm((p) => ({ ...p, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Cadastro de paciente enviado:', formData);
-    alert('Cadastro realizado com sucesso!');
-    router.push('/HomePaciente');
+    setStatus({ type: "", message: "" });
+
+    // validações mínimas
+    const required = [
+      "email",
+      "senha",
+      "CPF",
+      "nome",
+      "data_de_nascimento",
+      "sexo",
+    ];
+    const faltando = required.filter((k) => !form[k]?.trim());
+    if (faltando.length) {
+      return setStatus({ type: "error", message: "Preencha todos os campos obrigatórios." });
+    }
+    if (form.senha !== form.confirmarSenha) {
+      return setStatus({ type: "error", message: "As senhas não coincidem." });
+    }
+
+    try {
+      setLoading(true);
+      const params = new URLSearchParams();
+      // chaves iguais às colunas do banco
+      params.append("email", form.email);
+      params.append("senha", form.senha);
+      params.append("CPF", form.CPF);
+      params.append("endereço", form.endereço || "");              // opcional
+      params.append("nome", form.nome);
+      params.append("data_de_nascimento", form.data_de_nascimento);
+      params.append("sexo", form.sexo);
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/paciente/cadastrar.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString(),
+      });
+
+      const data = await res.json();
+      if (data?.sucesso) {
+        setStatus({ type: "success", message: "Paciente cadastrado com sucesso!" });
+        setForm({
+          email: "",
+          senha: "",
+          CPF: "",
+          endereço: "",
+          nome: "",
+          data_de_nascimento: "",
+          sexo: "",
+          confirmarSenha: "",
+        });
+      } else {
+        setStatus({ type: "error", message: data?.mensagem || "Falha ao cadastrar." });
+      }
+    } catch {
+      setStatus({ type: "error", message: "Erro ao conectar com o servidor." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="telaCadastro">
-      <button className="voltar-btn" onClick={() => router.push('/TelaEscolhaCadastro')}>← Voltar</button>
+    <main className="cadGeneric">
+      <h1 className="title">Cadastro Paciente</h1>
 
-      <form onSubmit={handleSubmit}>
-        <h1>Cadastro de Paciente</h1>
-
-        <input
-          type="text"
-          placeholder="Nome"
-          value={formData.nome}
-          onChange={(e) => handleChange('nome', e.target.value)}
-          required
-        />
-
-        <input
-          type="email"
-          placeholder="E-mail"
-          value={formData.email}
-          onChange={(e) => handleChange('email', e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Sexo (Masculino, Feminino, Outro)"
-          value={formData.sexo}
-          onChange={(e) => handleChange('sexo', e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Data de Nascimento (dd/mm/aaaa)"
-          value={formData.dataNascimento}
-          onChange={(e) => handleChange('dataNascimento', e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="CPF"
-          value={formData.cpf}
-          onChange={(e) => handleChange('cpf', e.target.value)}
-          required
-        />
-
-        <input
-          type="tel"
-          placeholder="Telefone"
-          value={formData.telefone}
-          onChange={(e) => handleChange('telefone', e.target.value)}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Endereço"
-          value={formData.endereco}
-          onChange={(e) => handleChange('endereco', e.target.value)}
-          required
-        />
-
-        <label className="checkboxLabel">
+      <section className="card">
+        <form className="form" onSubmit={handleSubmit} noValidate>
           <input
-            type="checkbox"
-            checked={formData.possuiPlano}
-            onChange={(e) => handleChange('possuiPlano', e.target.checked)}
+            type="email"
+            name="email"
+            placeholder="E-mail*"
+            value={form.email}
+            onChange={onChange}
+            aria-label="E-mail"
+            autoComplete="email"
+            required
           />
-          <span className="checkboxText">Possui plano de saúde?</span>
-        </label>
 
-        {formData.possuiPlano && (
           <input
-            type="text"
-            placeholder="Fornecedora do Plano"
-            value={formData.fornecedoraPlano}
-            onChange={(e) => handleChange('fornecedoraPlano', e.target.value)}
+            type="password"
+            name="senha"
+            placeholder="Senha*"
+            value={form.senha}
+            onChange={onChange}
+            aria-label="Senha"
+            autoComplete="new-password"
+            required
           />
-        )}
 
-        <button type="submit" className="botao-cadastrar">Cadastrar</button>
-      </form>
-    </div>
+          <input
+            type="password"
+            name="confirmarSenha"
+            placeholder="Confirmar Senha*"
+            value={form.confirmarSenha}
+            onChange={onChange}
+            aria-label="Confirmar Senha"
+            autoComplete="new-password"
+            required
+          />
+
+          <input
+            name="CPF"
+            placeholder="CPF*"
+            value={form.CPF}
+            onChange={onChange}
+            aria-label="CPF"
+            maxLength={16}
+            required
+          />
+
+          <input
+            name="endereço"
+            placeholder="Endereço"
+            value={form.endereço}
+            onChange={onChange}
+            aria-label="Endereço"
+          />
+
+          <input
+            name="nome"
+            placeholder="Nome*"
+            value={form.nome}
+            onChange={onChange}
+            aria-label="Nome"
+            required
+          />
+
+          <input
+            type="date"
+            name="data_de_nascimento"
+            placeholder="Data de nascimento*"
+            value={form.data_de_nascimento}
+            onChange={onChange}
+            aria-label="Data de nascimento"
+            required
+          />
+
+          <select
+            name="sexo"
+            value={form.sexo}
+            onChange={onChange}
+            aria-label="Sexo"
+            required
+          >
+            <option value="" disabled>Sexo*</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
+
+          {status.message && (
+            <p className={`status ${status.type === "error" ? "error" : "success"}`}>
+              {status.message}
+            </p>
+          )}
+
+          <button className="btn-primary" type="submit" disabled={loading}>
+            {loading ? "Cadastrando..." : "Cadastrar"}
+          </button>
+        </form>
+      </section>
+    </main>
   );
 }

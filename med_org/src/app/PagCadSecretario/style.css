@@ -1,72 +1,110 @@
-.telaCadastro {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 100px;
+
+body {
+  background: #f4f6fb !important;
+  color: #111 !important;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #fff;
-  max-width: 50%;
-  width: 400px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+:root{
+  --bg:#fff; --bg-page:#f4f6fb; --text:#222; --muted:#777; --border:#d9d9d9;
+  --primary:#2563eb; --primary-weak:rgba(37,99,235,.15);
+  --success:#16a34a; --danger:#e11d48;
 }
 
-form h1 {
-  color: #007bff;
-  font-size: 24px;
+
+.cadGeneric{
+  min-height: 100dvh;                
+  background: var(--bg-page);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--text);
+}
+
+
+.title{
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 24px;
   text-align: center;
-  margin-bottom: 10px;
 }
 
-form button {
-  background-color: #1976D2;
-  height: 40px;
-  color: white;
-  font-size: 16px;
+
+.card{
+  width: 100%;
+  max-width: 640px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  padding: 24px;
+  margin: 0 auto;                    
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+.form input,
+.form select,
+.form textarea {
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--muted);
+}
+
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-weak);
+}
+
+
+.form input[type="date"] {
+  color: var(--text);
+}
+
+
+.status{ font-size:14px; margin-top:4px; }
+.status.error{ color: var(--danger); }
+.status.success{ color: var(--success); }
+
+.btn-primary{
+  height: 44px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transition: filter .15s ease, transform .02s ease;
+  margin-top: 4px;
 }
+.btn-primary:hover{ filter: brightness(.96); }
+.btn-primary:active{ transform: translateY(1px); }
+.btn-primary:disabled{ opacity: .7; cursor: not-allowed; }
 
-form button:hover {
-  opacity: 0.85;
-}
 
-.voltar-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #1976d2;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.voltar-btn:hover {
-  text-decoration: underline;
-}
-
-.botao-cadastrar {
-  background-color: #007bff !important;
-  color: white !important;
-  border: none;
-  border-radius: 6px;
-  height: 40px;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 0 20px;
-  transition: background-color 5.0s ease;
-}
-
-.botao-cadastrar:hover {
-  background-color: #0070d9 !important;
+@media (max-width: 480px){
+  .card{ padding: 18px; }
+  .title{ font-size: 24px; }
 }
