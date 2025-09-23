@@ -1,13 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+'use client';
+import { useRouter } from 'next/navigation';
 import './style.css'
 
 function Suporte() {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     return (
         <div className='SupTec'>
-            <button className="voltar-btn" onClick={() => navigate(-1)}>← Voltar</button> 
+            <button 
+              className="voltar-btn" 
+              onClick={() => router.back()}
+            >
+                ← Voltar
+            </button> 
             <form id='sup'>
                 <h1 id='titulo'>Lista de Contatos para suporte:</h1>
                 <h1 id='nome'>- Antônio Edson:</h1>
@@ -31,4 +36,4 @@ function Suporte() {
     )
 }
 
-export default Suporte
+export default Suporte;
