@@ -6,9 +6,15 @@ import './style.css';
 const HomeMedico = () => {
     const router = useRouter();
 
-    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+    const usuarioSalvo = null;
     const userName = usuarioSalvo?.nome || "Médico";
     const tipoUsuario = usuarioSalvo?.tipo;
+
+    useEffect(()=> {
+        usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+        userName = usuarioSalvo?.nome || "Médico";
+        tipoUsuario = usuarioSalvo?.tipo;
+    }, [])
 
     useEffect(() => {
         if(tipoUsuario !== "medico") {

@@ -1,14 +1,20 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React from "react";
+import React, { useEffect } from "react";
 import './style.css';
 
 const HomePaciente = () => {
   const router = useRouter();
 
-  const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+  const usuarioSalvo = null;
   const userName = usuarioSalvo?.nome || "Usuário";
   const tipoUsuario = usuarioSalvo?.tipo;
+
+  useEffect(()=> {
+      usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+      userName = usuarioSalvo?.nome || "Médico";
+      tipoUsuario = usuarioSalvo?.tipo;
+  }, [])
 
   // useEffect(() => {
   //   if (tipoUsuario !== "paciente") {

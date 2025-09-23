@@ -5,11 +5,17 @@ import './style.css';
 
 const HomeSecretario = () => {
   const navigate = useRouter();
-  const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+  const usuarioSalvo = null;
   const userName = usuarioSalvo?.nome || "Secretário";
   const tipoUsuario = usuarioSalvo?.tipo;
 
   const [hora, setHora] = useState(new Date());
+
+  useEffect(()=> {
+      usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+      userName = usuarioSalvo?.nome || "Médico";
+      tipoUsuario = usuarioSalvo?.tipo;
+  }, [])
 
   // useEffect(() => {
   //   if (!usuarioSalvo || tipoUsuario !== "secretario") {
