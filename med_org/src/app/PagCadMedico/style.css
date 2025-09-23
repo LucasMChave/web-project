@@ -1,99 +1,50 @@
-.telaCadastro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding: 60px 20px;
-  background-color: #f0f2f5; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
+
+body { background:#f4f6fb !important; color:#111 !important; }
+
+:root{
+  --bg:#fff; --bg-page:#f4f6fb; --text:#222; --muted:#777; --border:#d9d9d9;
+  --primary:#2563eb; --primary-weak:rgba(37,99,235,.15);
+  --success:#16a34a; --danger:#e11d48;
 }
 
-h1 {
-  color: #007bff;
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 30px;
+
+.cadGeneric{
+  min-height:100dvh;
+  background:var(--bg-page);
+  display:flex; align-items:flex-start; justify-content:center;
+  padding:48px 16px; color:var(--text);
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 40px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  transition: all 0.3s ease;
+.title{ color:var(--primary); font-size:28px; font-weight:700; margin:0 0 24px; text-align:center; }
+.card{
+  width:100%; max-width:640px; background:var(--bg); border:1px solid var(--border);
+  border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.06); padding:24px; margin:0 auto;
 }
+.form{ display:flex; flex-direction:column; gap:14px; }
 
-form input {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
+
+.form input, .form select, .form textarea{
+  color:var(--text); background:#fff; border:1px solid var(--border);
+  padding:12px 14px; border-radius:8px; font-size:14px; line-height:1.2;
 }
-
-form input:focus {
-  border-color: #007bff;
-  outline: none;
+.form input::placeholder, .form textarea::placeholder{ color:var(--muted); }
+.form input:focus, .form select:focus, .form textarea:focus{
+  outline:none; border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-weak);
 }
+.form input[type="date"]{ color:var(--text); }
 
-.voltar-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #1976d2;
-  cursor: pointer;
-  font-weight: bold;
+
+.status{ font-size:14px; margin-top:4px; }
+.status.error{ color:var(--danger); } .status.success{ color:var(--success); }
+
+
+.btn-primary{
+  height:44px; border:none; border-radius:10px; cursor:pointer;
+  background:var(--primary); color:#fff; font-weight:600;
+  transition:filter .15s ease, transform .02s ease; margin-top:4px;
 }
+.btn-primary:hover{ filter:brightness(.96); }
+.btn-primary:active{ transform:translateY(1px); }
+.btn-primary:disabled{ opacity:.7; cursor:not-allowed; }
 
-.voltar-btn:hover {
-  text-decoration: underline;
-}
 
-.botao-cadastrar {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  height: 45px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.botao-cadastrar:hover {
-  background-color: #005ecb;
-  transform: translateY(-2px);
-}
-
-img {
-  border: none;
-  margin: auto;
-  height: 100px;
-  width: 100px;
-}
-
-@media (max-width: 600px) {
-  form {
-    padding: 30px 20px;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .botao-cadastrar {
-    height: 40px;
-    font-size: 15px;
-  }
-}
+@media (max-width:480px){ .card{ padding:18px; } .title{ font-size:24px; } }
