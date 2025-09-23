@@ -28,6 +28,7 @@ export default function PagCadMedico() {
     e.preventDefault();
     setStatus({ type: "", message: "" });
 
+    // obrigatórios segundo o schema (opcionais: especialização, endereço)
     const required = [
       "nome",
       "email",

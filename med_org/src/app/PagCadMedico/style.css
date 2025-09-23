@@ -1,12 +1,12 @@
 
 body { background:#f4f6fb !important; color:#111 !important; }
 
+
 :root{
   --bg:#fff; --bg-page:#f4f6fb; --text:#222; --muted:#777; --border:#d9d9d9;
   --primary:#2563eb; --primary-weak:rgba(37,99,235,.15);
   --success:#16a34a; --danger:#e11d48;
 }
-
 
 .cadGeneric{
   min-height:100dvh;
