@@ -1,9 +1,9 @@
 <?php
 // Exemplo de conexão com MySQL
-$host = 'localhost';
-$db = 'meu_banco';
+$host = 'localhost80';
+$db = 'med_org';
 $user = 'root';
-$pass = '';
+$pass = '848725';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
